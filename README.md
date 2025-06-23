@@ -1,2 +1,2 @@
 # shiny-journey
-Auto-send TCOIN after donation or YES confirmation 💫
+Auto-send donation YES confirmation Thank YOU 💫
