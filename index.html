@@ -1,86 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>✨ KIDS EAT FREE ✨</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KIDS EAT FREE</title>
   <style>
     body {
-      background: #111;
-      font-family: 'Arial Rounded MT Bold', sans-serif;
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABKYAAARICAIAAAC3Mk5DAAAK12lDQ1BJQ0MgUHJvZmlsZQAAeJyVlwdUk8kWx+f70kNCSSDSCb0jnQBSQg9FkA6iEpKQhBJDQlAQO4sruBZURLCs6IqIgqsrIGtBLFhYBHvfIIuAui4WbKjsF3iE3X3nvXfePWcyv3Nz5869k5lz/gGAHMYWi3NgdQByRfmS2NAAenJKKh03DCCAB2oADShsjlTMjImJBIhNzX+3d7eRaMRu2Cty/fv3/9UoXJ6UAwCUhnAGV8rJRbgdGc84...') no-repeat center center fixed;
+      background-size: cover;
       margin: 0;
+      font-family: Arial, sans-serif;
       color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .magic-box {
-      background: #1c1c1c;
-      padding: 40px;
-      border: 2px solid gold;
-      border-radius: 18px;
-      box-shadow: 0 0 24px gold;
-      max-width: 700px;
       text-align: center;
     }
+    .card {
+      background: #111;
+      padding: 40px 20px;
+      margin: 60px auto;
+      max-width: 500px;
+      border-radius: 20px;
+      border: 2px solid #FFD700;
+      box-shadow: 0 0 25px #FFD700;
+    }
     h1 {
-      color: #FFD700;
-      font-size: 2.5em;
+      font-size: 2.5rem;
+      color: #ff5ec7;
     }
-    .highlight {
-      color: #FF69B4;
-      font-size: 1.8em;
+    h2 {
+      margin: 20px 0;
     }
-    .small-line {
-      margin: 15px 0;
-      font-size: 1.1em;
-      color: #f2f2f2;
-    }
-    input[type="text"] {
-      padding: 12px;
+    input {
       width: 90%;
-      border-radius: 8px;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 6px;
       border: none;
-      font-size: 1em;
+      font-size: 1rem;
+      text-align: center;
     }
     button {
-      background: #FFD700;
-      color: #111;
-      padding: 14px 30px;
-      margin-top: 20px;
-      font-weight: bold;
+      margin: 15px 5px;
+      padding: 12px 20px;
+      background: #ffdc00;
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
+      font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 0 12px #ffcc00;
     }
-    button:hover {
-      background: #ffcf33;
-    }
-    .donate-img {
-      max-width: 100%;
-      border-radius: 12px;
-      margin-top: 20px;
+    #copied-msg {
+      color: lightgreen;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
+  <div class="card">
+    <h1>💖 KIDS EAT FREE 💖</h1>
+    <h2>YES 2 KEF → $30 = 1 CHILD • 1 MONTH • FREE FOOD 🍽️</h2>
+    <h2>🎁 Donate & Receive a MAGIC THANK YOU from 1000 KIDS 💖✨<br>🚀 THE ONLY OFFICIAL TCOIN = LOVE 💫</h2>
 
-  <div class="magic-box">
-    <h1><span class="highlight">💖 KIDS EAT FREE 💖</span></h1>
-    <div class="small-line">YES 2 KEF → $30 = 1 CHILD • 1 MONTH • FREE FOOD 🍚</div>
-    <h2>🎁 Donate & Receive TCOIN 🌙</h2>
-    <p><strong>Your Solana Wallet Address:</strong></p>
-    <input type="text" placeholder="Paste your Solana address">
+    <p><strong>Solana Address (owners)</strong></p>
+    <input id="wallet" value="4K8nhtZuR53hTehr1R9c5FtsNogkaRHegPk8Dsxtb29D" readonly />
     <br>
-    <button>Submit Wallet & Continue to Pay</button>
+    <button onclick="copyWallet()">📋 Copy</button>
+    <button onclick="window.open('https://www.paypal.com/ncp/payment/NUC6YA2XPND3Y', '_blank')">💳 Donate QR Code</button>
+    <p id="copied-msg"></p>
 
-    <!-- Optional: QR or image -->
-    <img class="donate-img" src="data:image/png;base64,PUT-YOUR-BASE64-HERE" alt="Donate QR Code">
-
-    <div class="small-line">✨ You are the key. You feed the children. You create the magic ✨</div>
+    <p>✨ You are the key. You feed the children. You create the magic ✨</p>
   </div>
 
+  <script>
+    function copyWallet() {
+      const copyText = document.getElementById("wallet");
+      navigator.clipboard.writeText(copyText.value).then(() => {
+        document.getElementById("copied-msg").textContent = "Wallet address copied! 💫";
+      });
+    }
+  </script>
 </body>
 </html>
